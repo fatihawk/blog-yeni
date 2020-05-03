@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use Illuminate\Http\Request;
-use App\Hakkimizda;
 
 
-class HakkimizdaController extends Controller
+class PageController extends Controller
 {
-
+    public function show($id)
+    {
+        $post=Page::find($id);
+        return view('page.show',compact('post'));
+    }
     public function form($id =null)
     {
-        $post = Hakkimizda::find($id);
-        return view('Hakkimizda.form',compact('post'));
+        $post = Page::find($id);
+        return view('page.form',compact('post'));
     }
     public function save(Request $request){
         if($request->has('id')){
-            Hakkimizda::find($request->id)->update([
+            Page::find($request->id)->update([
             'title'=>$request->title,
             'content'=>$request->content,
             ]);
-        }else{Hakkimizda::create([
+        }else{Page::create([
             'title'=>$request->title,
             'content'=>$request->content,
         ]);
@@ -29,7 +33,7 @@ class HakkimizdaController extends Controller
     }
     public function delete($id)
     {
-        Hakkimizda::destroy($id);
+        Page::destroy($id);
         return redirect()->route('home');
     }
 }

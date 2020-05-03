@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Hakkimizda form</div>
+                <div class="card-header">Page form</div>
 
                 <div class="card-body">
-                   <form action="{{ route('Hakkimizda.save') }}" method="POST">
+                   <form action="{{ route('page.save') }}" method="POST">
                    @csrf
                    @if(!empty($post))
                     <input type="hidden" name="id" value="{{ $post -> id}}">

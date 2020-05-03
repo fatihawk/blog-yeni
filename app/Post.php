@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 Use App\Comment;
+Use App\Category;
 
 class Post extends Model
 {
@@ -14,8 +15,12 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'content', 'image',
+        'cat_id','title', 'content', 'image',
     ];
+    public function Category()
+    {
+        return $this->hasOne(Category::class,'id','cat_id');
+    }
     public function user()
     {
         return $this->hasOne(User::class,'id','user_id');
@@ -24,6 +29,7 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
     
 
 }

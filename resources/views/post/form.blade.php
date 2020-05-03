@@ -13,6 +13,7 @@
                         @if(!empty($post))
                         <input type="hidden" name="id" value="{{ $post -> id}}">
                         @endif
+                        <input type="text" name="cat_id" id="cat_id" class="form-control" placeholder="Title">
                         <input value="{{ empty($post) ? '': $post->title }}" type="text" name="title" id="" class="form-control" placeholder="Title">
                         <textarea name="content" id="" cols="30" rows="10" class="form-control">{{ empty($post ->content) ? '': $post->content }}</textarea>
                         <input type="file" name="image" id="">

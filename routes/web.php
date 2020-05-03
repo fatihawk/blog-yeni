@@ -25,10 +25,13 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 Route::group(['middleware'=>'auth', 'prefix' => 'admin'], function() {
-    Route::get('Hakkimizda/form','HakkimizdaController@form')->name('Hakkimizda.form');
-    Route::post('Hakkimizda/save','HakkimizdaController@save')->name('Hakkimizda.save');
-    Route::get('Hakkimizda/{id}/form','HakkimizdaController@form') ->name('Hakkimizda.form.edit');
-    Route::get('Hakkimizda/{id}/delete','HakkimizdaController@delete') ->name('Hakkimizda.delete');
+    Route::get('category/form','CategoryController@form')->name('category.form');
+    Route::post('category/save', 'CategoryController@save') ->name('category.save');
+    Route::get('page/form','PageController@form')->name('page.form');
+    Route::post('page/save','PageController@save')->name('page.save');
+    Route::get('page/{id}/form','PageController@form')->name('page.form.edit');
+    Route::get('page/{id}/delete','PageController@delete') ->name('page.delete');
+    Route::get('page/{id}','PageController@show') ->name('page.show');
     Route::get('post/form', 'PostController@form') ->name('post.form');
     Route::post('post/save', 'PostController@save') ->name('post.save');
     Route::get('post/{id}/form','PostController@form') ->name('post.form.edit');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-use App\Hakkimizda;
+use App\Page;
 
 class HomeController extends Controller
 {
@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts=Post::all();
-        $yeni=Hakkimizda::all();
-        return view('home',compact('posts'),compact('yeni'));
+        $pages=Page::all();
+        return view('home',compact('posts','pages'));
     }
 }
